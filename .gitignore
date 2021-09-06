@@ -1,0 +1,10 @@
+# SUSHI and IG Publisher
+**/fsh-generated
+**/input-cache
+**/output
+**/temp
+**/template
+**/_preprocessed
+**/_genonce*
+**/_updatePublisher*
+**/*.jar
