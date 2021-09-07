@@ -7,6 +7,15 @@ Document how to build a CI/CD pipeline for your FHIR Implementationu Guide using
 To run the Docker images, install Docker, a personal license should suffice.
 [Docker](https://www.docker.com/get-started)
 
+### Build Docker image
+
+Build a docker image using the vscode task or command-line:
+~~~
+docker build -t navikt/fhir-ig-dev .
+~~~
+
+The docker image settings is contained in the "Dockerfile" configuration file of the repo.
+
 ## Projects and documentation
 
 * [NAV's writeup of the buildprocess](https://github.com/navikt/fhir)
