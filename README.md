@@ -10,11 +10,16 @@ To run the Docker images, install Docker, a personal license should suffice.
 ### Build Docker image
 
 Build a docker image using the vscode task or command-line:
-~~~
+
+~~~bash
 docker build -t navikt/fhir-ig-dev .
 ~~~
 
 The docker image settings is contained in the "Dockerfile" configuration file of the repo.
+
+### Make an ImplementationGuide
+
+In a separate folder under "igs", define your IG and the FHIR artifacts (profiles, extensions etc.). Artifacts goes in the input folder
 
 ## Projects and documentation
 
