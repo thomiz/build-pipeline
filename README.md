@@ -21,6 +21,11 @@ The docker image settings is contained in the "Dockerfile" configuration file of
 
 In a separate folder under "igs", define your IG and the FHIR artifacts (profiles, extensions etc.). Artifacts goes in the input folder
 
+Artifacts can be converted from xml/json to FSH or written by hand using the FSH language
+
+First run on no-basis roundtrip did result in some errors, but mostly easy to fix (probably, some examples are wrong)
+Errors in AllergyIntolerance, HEaltcareService, KommunikasjonspartOrganization (not normative), NoBasisHumanName, NoBasisPatient, NoBasisPropertyinformation and NoBasisPractitioner
+
 ## Projects and documentation
 
 * [NAV's writeup of the buildprocess](https://github.com/navikt/fhir)
