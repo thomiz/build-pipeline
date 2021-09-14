@@ -24,7 +24,8 @@ In a separate folder under "igs", define your IG and the FHIR artifacts (profile
 Artifacts can be converted from xml/json to FSH or written by hand using the FSH language
 
 First run on no-basis roundtrip did result in some errors, but mostly easy to fix (probably, some examples are wrong)
-Errors in AllergyIntolerance, HEaltcareService, KommunikasjonspartOrganization (not normative), NoBasisHumanName, NoBasisPatient, NoBasisPropertyinformation and NoBasisPractitioner
+Errors in AllergyIntolerance, HealtcareService, KommunikasjonspartOrganization (not normative), NoBasisHumanName, NoBasisPatient, NoBasisPropertyinformation and NoBasisPractitioner
+
 
 ## Projects and documentation
 
