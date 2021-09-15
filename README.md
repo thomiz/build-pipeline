@@ -17,6 +17,11 @@ docker build -t navikt/fhir-ig-dev .
 
 The docker image settings is contained in the "Dockerfile" configuration file of the repo.
 
+### Setup your GitHub repo
+
+You will need a gh-pages branch to contain the files produced from you IG build process.
+[gh-pages setup](https://gist.github.com/chrisjacob/833223)
+
 ### Make an ImplementationGuide
 
 In a separate folder under "igs", define your IG and the FHIR artifacts (profiles, extensions etc.). Artifacts goes in the input folder
