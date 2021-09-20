@@ -1,0 +1,85 @@
+# Name must match the IG's directory name.
+name: no-basis
+
+on:
+  push:
+    branches: [main]
+    paths: [igs/no-basis/**]
+  workflow_dispatch:
+
+# The following jobs are equal for all IGs and can be moved to a common composite-action if 'uses'-support is added, see:
+# https://github.com/actions/runner/blob/main/docs/adrs/1144-composite-actions.md
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      # Downloads the newest version of the IG Publisher, this could probable be cached.
+      - name: 📥 Download IG Publisher
+        uses: docker://hl7fhir/ig-publisher-base:latest
+        with:
+          args: curl -L https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar -o ./input-cache/publisher.jar --create-dirs
+
+      # Builds the HTML page for the IG and a NPM Package for distribution.
+      - name: 📦 Run IG Publisher
+        uses: docker://hl7fhir/ig-publisher-base:latest
+        with:
+          args: java -jar ./input-cache/publisher.jar publisher -ig igs/${{ github.workflow }}/ig.ini
+
+      # Publishes the HTML page to a seperate branch in order to host it using GitHub-Pages.
+      # This will overwrite the currently published HTML page.
+      - name: 🚀 Deploy to GitHub-Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./igs/${{ github.workflow }}/output
+          destination_dir: ./igs/${{ github.workflow }}
+          exclude_assets: '**.zip,**.tgz,**.pack'
+          commit_message: '${{ github.workflow }}: ${{ github.event.head_commit.message }}'
+
+      # Gets the IG's id and version from the sushi-config.yaml file, this is needed to create the unique package/release name.
+      - name: 🔖 Get Id and Version
+        uses: CumulusDS/get-yaml-paths-action@v0.1.0
+        id: sushi_config
+        with:
+          file: ./igs/${{ github.workflow }}/sushi-config.yaml
+          id: id
+          version: version
+
+      # Fetches the changelog-entry for the version, this will be used to describe the release.
+      # Will fail the workflow if an entry is missing, this is intentional behavior.
+      - name: 📄 Get Changelog Entry
+        uses: mindsers/changelog-reader-action@v2
+        id: changelog
+        with:
+          path: ./igs/${{ github.workflow }}/input/pagecontent/CHANGELOG.md
+          version: ${{ steps.sushi_config.outputs.version }}
+
+      # Checks if the Release already exists, if it does we do not want to overwrite it because a release should be immutable.
+      - name: ❔ Check if Release exists
+        uses: mukunku/tag-exists-action@v1.0.0
+        id: check_tag
+        with: 
+          tag: ${{ steps.sushi_config.outputs.id }}-${{ steps.sushi_config.outputs.version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # A commit-tag is needed when creating a release.
+      # This step will push a new tag on the current commit with the format: {package-id}-{version}.
+      - name: 🏷️ Push Release Tag
+        uses: actions-ecosystem/action-push-tag@v1
+        if: ${{ steps.check_tag.outputs.exists == 'false'}}
+        with:
+          tag: ${{ steps.sushi_config.outputs.id }}-${{ steps.sushi_config.outputs.version }}
+
+      # Creates a new GitHub Release with a NPM Package containing the FHIR Profiles.
+      # This package is ready to be published to the FHIR Package Registry.
+      - name: 📮 Create Release
+        uses: softprops/action-gh-release@v1
+        if: ${{ steps.check_tag.outputs.exists == 'false'}}
+        with:
+          tag_name: ${{ steps.sushi_config.outputs.id }}-${{ steps.sushi_config.outputs.version }}
+          body: ${{ steps.changelog.outputs.changes }}
+          files: |
+            ./igs/${{ github.workflow }}/output/package.tgz
