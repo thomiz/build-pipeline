@@ -1,5 +1,4 @@
-Profile: NoBasisMiddlename
-Parent: Extension
+Extension: NoBasisMiddlename
 Id: no-basis-middlename
 Title: "no-basis-middlename"
 Description: "The basis extension defines the Norwegian middlename wich is called \"mellomnavn\" and defined by Norwegian legislation (Lov om personnavn)."
