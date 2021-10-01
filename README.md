@@ -12,10 +12,10 @@ To run the Docker images, install Docker, a personal license should suffice.
 Build a docker image using the vscode task or command-line:
 
 ~~~bash
-docker build -t navikt/fhir-ig-dev .
+docker build -t [your docker image name here] .
 ~~~
 
-The docker image settings is contained in the "Dockerfile" configuration file of the repo.
+The docker image settings is contained in the "Dockerfile" configuration file of the repo. The docker file defines how to build a docker image to run the FHIR validator, IG Publishing and SUSHI, including all dependencies.
 
 ### Setup your GitHub repo
 
@@ -39,8 +39,13 @@ You need three files to get started with IG build process:
 The actual FHIR definitions goes into the fsh folder, full writeup of the catalog structure for [IG-generation](https://fshschool.org/docs/sushi/project/#ig-projects):
 * input/fsh/* - All the fsh files defining your FHIR artifacts (profiles, search parameters, codesystems etc.)
 
+### Setup a CI GitHub workflow
+
+
 ## Projects and documentation
 
+* [FSH/SUSHI School](https://fshschool.org/docs/)
+* [Guidance for FHIR IG Creation](http://build.fhir.org/ig/FHIR/ig-guidance/index.html)
 * [NAV's writeup of the buildprocess](https://github.com/navikt/fhir)
 * [The official HL7 auto IG builder](https://github.com/FHIR/auto-ig-builder)
 * [Dockerized build image for IG publisher](https://github.com/NIH-NCPI/hl7-fhir-ig-publisher)
@@ -48,5 +53,3 @@ The actual FHIR definitions goes into the fsh folder, full writeup of the catalo
 * [An important script for the GitHub workflow](https://github.com/hl7-be/tutorial_ig/tree/master/.github/workflows)
 * [Docker build alternative](https://github.com/logicahealth/fhir-ig-base)
   * [The actual Docker image for download](https://hub.docker.com/r/logicahealth/fhir-ig-base)
-* [FSH/SUSHI School](https://fshschool.org/docs/)
-* [Guidance for FHIR IG Creation](http://build.fhir.org/ig/FHIR/ig-guidance/index.html)
