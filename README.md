@@ -29,7 +29,8 @@ Clone the gh-pages branch to a separate directory locally where you store all th
 
 ### Make an ImplementationGuide
 
-In a separate folder under "igs", define your IG and the FHIR artifacts (profiles, extensions etc.). Artifacts goes in the input folder.  FHIR artifacts can be converted from xml/json to FSH or written by hand using the FSH language. IG-publisher can take FHIR XML/JSON Definition but then you have to write your own ImplementationGuide resource.  
+In a separate folder under "igs", define your IG and the FHIR artifacts (profiles, extensions etc.). Artifacts goes in the input folder.  FHIR artifacts can be converted from xml/json to FSH or written by hand using the FSH language.
+
 You need three files to get started with IG build process:
 * ig.ini - Defines the template for the IG and where the generated ImplementationGuide resouces is to be found.
 * sushi-config.yaml - Defines configuration for your implementation guide to the SUSHI IG generation part of the IG-Publisher
