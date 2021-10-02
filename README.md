@@ -40,6 +40,18 @@ You need three files to get started with IG build process:
 The actual FHIR definitions goes into the fsh folder, full writeup of the catalog structure for [IG-generation](https://fshschool.org/docs/sushi/project/#ig-projects):
 * input/fsh/* - All the fsh files defining your FHIR artifacts (profiles, search parameters, codesystems etc.)
 
+XML or JSON input is placed in the input folder with [appropriate folder names](https://build.fhir.org/ig/FHIR/ig-guidance/using-templates.html#igroot-input)  
+
+### Run SUSHI
+
+To generate an ImplementationGuide.json and a menu.xml file for IG-publisher you need to rund SUSHI. Any fsh artifacts will also be generated an placed in the fsh-generated directory as a result of this run.
+
+~~~bash
+docker run --rm -v e:\GitRepo\test-IG\master\igs\test-IG:/data thomiz/fhir-build sushi /data
+~~~
+
+After the first run, the IG-publisher will update the ImplementationGuide.json file for you, but you can not run the IG-publisher the first time around without an ImplementationGuide Resource definition.
+
 ### Run the IG-publisher
 
 When you have created the necessary files you can run the IG-publisher to generate an actual implementation guide.
@@ -47,6 +59,10 @@ When you have created the necessary files you can run the IG-publisher to genera
 ~~~bash
 docker run -it --rm -v package-cache:/root/.fhir -v [ig directory]:/data [name of docker image] publisher -ig /data/ig.ini
 ~~~
+
+### Publish the IG
+
+The contents in the "output" folder can be copied into the "gh-pages" folder. As soon as the contents is checked in to the GitHub repo you should have a IG page published on your github.io site.
 
 ## Setup a CI GitHub workflow
 
