@@ -1,7 +1,17 @@
 # FHIR build pipeline
 
  The main goal of this guide is to show how you can generate an implementation guide from FHIR-profiles and other conformance resources defined for your FHIR project. The implementation guide should document how to implement a client and/or a server that is to integrate to your FHIR implementation and what semantic requirements the client/server should conform to.  
+
  ![FHIR Build Workflow](igs/FHIRbuild/input/images/workflow.png)  
+
+**Profiling** To make a FHIR implementation guide you first have to define the conformance resources that defines the semantic rules of you implementation. This step is called [Profiling](https://www.hl7.org/fhir/profiling.html) and usually produce a number for FHIR conformance resources either in the form of XML/JSON or SUSHI FSH files.  
+
+**Documenting** To make an Implementation Guide readable for humans you have to explain the use-case(s) your implementation implements and how the conformance resources are used to achieve interoperability supporting the use-case(s). This step is called documenting and the end result is usually a number of assets descriping the problem and their solution using your implementation. The assets are usually images and text that can be structured into a human readable document.  
+
+**Generating** To generate the actual FHIR implementation guide the FHIR tooling can generate static html pages that consists of all you conformance resources and all the documentation generated in the Documenting step. The end result is a number of html pages that can be published on the internet.
+
+**Hosting** The finished implementation guide generated in the last step can be hosted on you preferred web hosting site. The generated FHIR package should be published in the [FHIR package registry](https://registry.fhir.org/)
+
 
 ## Running IG-publisher as a Github-workflow
 
