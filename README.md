@@ -91,6 +91,7 @@ The contents in the "output" folder can be copied into the "gh-pages" folder. As
 
 ## Projects and documentation
 
+* NEW [Maintain FHIR IG publication](https://confluence.hl7.org/display/FHIR/Maintaining+a+FHIR+IG+Publication)
 * [FSH/SUSHI School](https://fshschool.org/docs/)
 * [Guidance for FHIR IG Creation](http://build.fhir.org/ig/FHIR/ig-guidance/index.html)
 * [NAV's writeup of the buildprocess](https://github.com/navikt/fhir)
