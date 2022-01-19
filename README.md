@@ -6,12 +6,11 @@
 
 **Profiling** To make a FHIR implementation guide you first have to define the conformance resources that defines the semantic rules of you implementation. This step is called [Profiling](https://www.hl7.org/fhir/profiling.html) and usually produce a number for FHIR conformance resources either in the form of XML/JSON or SUSHI FSH files.  
 
-**Documenting** To make an Implementation Guide readable for humans you have to explain the use-case(s) your implementation implements and how the conformance resources are used to achieve interoperability supporting the use-case(s). This step is called documenting and the end result is usually a number of assets descriping the problem and their solution using your implementation. The assets are usually images and text that can be structured into a human readable document.  
+**Documenting** To make an Implementation Guide readable for humans you have to explain the use-case(s) your implementation supports and how the conformance resources are used to achieve interoperability supporting the use-case(s). This step is called documenting and the end result is usually a number of assets descriping the problem and their solution using your implementation and what conformance resources applies to different use-case(s). The assets are usually images and text that can be structured into a human readable document (usually a number of html pages).  
 
-**Generating** To generate the actual FHIR implementation guide the FHIR tooling can generate static html pages that consists of all you conformance resources and all the documentation generated in the Documenting step. The end result is a number of html pages that can be published on the internet.
+**Generating** To generate the actual FHIR implementation guide, the FHIR tooling can generate static html pages that consists of all you conformance resources and all the documentation generated in the Documenting step. The end result is a number of html pages that can be published on the internet.
 
-**Hosting** The finished implementation guide generated in the last step can be hosted on you preferred web hosting site. The generated FHIR package should be published in the [FHIR package registry](https://registry.fhir.org/)
-
+**Hosting** The finished implementation guide generated in the last step can be hosted on you preferred web hosting site. When you have a version of the IG that are ready for release you can publish this as a static version of the IG and register the generated FHIR package throug the [FHIR package registry](https://registry.fhir.org/). The Published version of the implementation guides should be hosted on the same url as the defined canonical of the ImplementationGuide.
 
 ## Running IG-publisher as a Github-workflow
 
