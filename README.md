@@ -10,7 +10,9 @@
 
 **Generating** To generate the actual FHIR implementation guide, the FHIR tooling can generate static html pages that consists of all you conformance resources and all the documentation generated in the Documenting step. The end result is a number of html pages that can be published on the internet.
 
-**Hosting** The finished implementation guide generated in the last step can be hosted on you preferred web hosting site. When you have a version of the IG that are ready for release you can publish this as a static version of the IG and register the generated FHIR package throug the [FHIR package registry](https://registry.fhir.org/). The Published version of the implementation guides should be hosted on the same url as the defined canonical of the ImplementationGuide.
+**Testing** TODO
+
+**Publishing** The finished implementation guide generated in the last step can be hosted on you preferred web hosting site. When you have a version of the IG that are ready for release you can publish this as a static version of the IG and register the generated FHIR package throug the [FHIR package registry](https://registry.fhir.org/). The Published version of the implementation guides should be hosted on the same url as the defined canonical of the ImplementationGuide.
 
 ## Running IG-publisher as a Github-workflow
 
