@@ -45,7 +45,7 @@ XML or JSON input is placed in the input folder with [appropriate folder names](
 
 ### Next step
 
-When the source files are written in you IG repository you are ready to run IG publisher and generate an actual FHIR IG. 
+When the source files are written in you IG repository you are ready to run IG publisher and generate an actual FHIR IG. You can choose two (or three) ways to generate a version of you IG:
 * Run the publisher as a Github-workflow
 * Run the publisher installation on your local computer (using a docker image is described here)
 
