@@ -38,10 +38,11 @@ You need three files to get started with IG build process:
 * input/pages/index.md - The starting page of your implementation guide, usually written i markdown
 * package-list.json - is recommended to keep track of published versions of your IG
 
-The actual FHIR definitions goes into the fsh folder, full writeup of the catalog structure for [IG-generation](https://fshschool.org/docs/sushi/project/#ig-projects):
+The actual FHIR definitions ([FHIR Shorthand](https://fshschool.org/docs/)) goes into the fsh folder, full writeup of the catalog structure for [IG-generation](https://fshschool.org/docs/sushi/project/#ig-projects):
 * input/fsh/* - All the fsh files defining your FHIR artifacts (profiles, search parameters, codesystems etc.)
 
-XML or JSON input is placed in the input folder with [appropriate folder names](https://build.fhir.org/ig/FHIR/ig-guidance/using-templates.html#igroot-input)  
+An alternative to writing the FHIR definition using FHIR Shorthand you can provide XML or JSON definitions directly or generated from other tools like [Forge](https://fire.ly/products/forge/) or [Trifolia on FHIR](https://trifolia-fhir.lantanagroup.com/lantana_hapi_r4/home). You can also mix FSH and XM/JSON input:
+* XML or JSON input is placed in the input folder with [appropriate folder names](https://build.fhir.org/ig/FHIR/ig-guidance/using-templates.html#igroot-input)  
 
 ### Next step
 
