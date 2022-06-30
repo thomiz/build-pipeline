@@ -106,12 +106,14 @@ When you have created the necessary files you can run the IG-publisher to genera
 docker run -it --rm -v package-cache:/root/.fhir -v [ig directory]:/data [name of docker image] publisher -ig /data/ig.ini
 ~~~
 
-### Publish the IG
+### Publish the IG on the web
 
 The contents in the "output" folder can be copied into the "gh-pages" folder. As soon as the contents is checked in to the GitHub repo you should have a IG page published on your github.io site.
 
-## Publication and hosting of a FHIR IG
+## Publish and hosting
 
+When an FHIR IG has undergone QA and processess defined by your organisation for publishing a formal working version of the IG, you should host the IG on a static URL consistent with the canonical URL defined for your IG. The process for doing so is described by HL7.
+* [Maintaining a FHIR IG Publication](https://confluence.hl7.org/display/FHIR/Maintaining+a+FHIR+IG+Publication)
 
 
 ## Projects and documentation
