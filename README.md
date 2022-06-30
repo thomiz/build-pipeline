@@ -16,7 +16,7 @@
 
 ## Setup repository for a FHIR Implementation guide
 
-This guide describes two ways for building your Implementationguide using HL7 IG publisher. No matter what build process you choose you need to setup a repository for you IG source files.
+This guide describes two ways for building your Implementationguide using HL7 IG publisher. No matter what build process you choose you need to setup a repository for you IG source files (if you use the local build option you could choose to store all files on your local computer, but the use of source control tool is highly recommended and makes it easy to make you IG readable by the public).
 
 ### Setup your GitHub repo
 
