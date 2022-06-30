@@ -14,33 +14,9 @@
 
 **Publishing** The finished implementation guide generated and undergoing testing and QA step could then be hosted on you preferred web hosting site as a finished version of the IG. When you have a version of the IG that are ready for release you can publish this as a static version of the IG and register the generated FHIR package in the [FHIR package registry](https://registry.fhir.org/). The Published version of the implementation guides should be hosted on the same url as the defined canonical of the ImplementationGuide.
 
-## Running IG-publisher as a Github-workflow
+## Setup repository for a FHIR Implementation guide
 
-When we set up a build environment using Github-workflow we make a yaml script that uses several prebuilt tools to build the implementation-guide and deploying this to a github-pages environment for publication. We use a HL7 generated docker image containing the FHIR build pipeline that handles any FHIR conformance resources for building a FHIR implementation guide.
-
-### Setup a CI GitHub workflow
-
-To use this build pipeline you have to make a script to run the IG-publisher and other necessarry jobs to build and deploy the Implementation Guide.
-
-### IG build yaml script
-
-
-## Running IG-publisher as a local docker image
-
-Alternatively to running the IG-publisher as a Github-Workflow you can install it locally and run it on your own hardware.
-
-To run the Docker images, install Docker, a personal license should suffice.
-[Docker](https://www.docker.com/get-started)
-
-### Build Docker image
-
-Build a docker image using the vscode task or command-line:
-
-~~~bash
-docker build -t [your docker image name here] .
-~~~
-
-The docker image settings is contained in the "Dockerfile" configuration file of the repo. The docker file defines how to build a docker image to run the FHIR validator, IG Publishing and SUSHI, including all dependencies. An alternative to run docker is to install these applications on your local computer, but it is easier to maintain a docker image with all dependencies installed.
+This guide describes two ways for building your Implementationguide using HL7 IG publisher. No matter what build process you choose you need to setup a repository for you IG source files.
 
 ### Setup your GitHub repo
 
@@ -60,11 +36,56 @@ You need three files to get started with IG build process:
 * ig.ini - Defines the template for the IG and where the generated ImplementationGuide resouces is to be found.
 * sushi-config.yaml - Defines configuration for your implementation guide to the SUSHI IG generation part of the IG-Publisher
 * input/pages/index.md - The starting page of your implementation guide, usually written i markdown
+* package-list.json - is recommended to keep track of published versions of your IG
 
 The actual FHIR definitions goes into the fsh folder, full writeup of the catalog structure for [IG-generation](https://fshschool.org/docs/sushi/project/#ig-projects):
 * input/fsh/* - All the fsh files defining your FHIR artifacts (profiles, search parameters, codesystems etc.)
 
 XML or JSON input is placed in the input folder with [appropriate folder names](https://build.fhir.org/ig/FHIR/ig-guidance/using-templates.html#igroot-input)  
+
+### Next step
+
+When the source files are written in you IG repository you are ready to run IG publisher and generate an actual FHIR IG. 
+* Run the publisher as a Github-workflow
+* Run the publisher installation on your local computer (using a docker image is described here)
+
+A third option is to setup a webhook to run the [HL7 auto build process](https://github.com/FHIR/auto-ig-builder)
+
+## Running IG-publisher as a Github-workflow
+
+When we set up a build environment using Github-workflow we make a yaml script that uses several prebuilt tools to build the implementation-guide and deploying this to a github-pages environment for review. We use a HL7 generated docker image containing the FHIR build pipeline that handles any FHIR conformance resources for building a FHIR implementation guide.
+
+### Setup a CI GitHub workflow
+
+To use this build pipeline you have to make a script to run the IG-publisher and other necessarry jobs to build and deploy the Implementation Guide.
+
+### IG build yaml script
+
+The build script is added in the **.github/workflows** directory of your Github repository. When the script is added to the main/master branch of your project it will apear under the **Actions** tab of you repo for manual run and status messages. The script can also be made to run automatically on commits to master or any other automation available through [Github-Actions](https://docs.github.com/en/actions).  
+We are using a clone of the auto builder made my [HL7 Belgium](https://github.com/hl7-be/tutorial_ig/blob/master/.github/workflows/main.yml) with some [modifications](https://github.com/HL7Norway/VkpObservation/blob/master/.github/workflows/vkpobservation-gh-pages.yml).  
+The script should be self explanatory with ample use of comments to describe the actual workings of the action script.
+
+### Output
+
+The running of the actual build process using the Github action should take 2-10 minutes dependent on the size of the Implementionguide. A successfull/unsuccessful run should be documented under the **Action** tab. The output from the script (the actual html rendered Implementation guide is available as html files in the **gh-pages** branch and can be accessed like this:
+* [VkpObservation Implementation Guide](https://hl7norway.github.io/VkpObservation/currentbuild/)
+
+## Running IG-publisher as a local docker image
+
+Alternatively to running the IG-publisher as a Github-Workflow you can install it locally and run it on your own hardware.
+
+To run the Docker images, install Docker, a personal license should suffice.
+[Docker](https://www.docker.com/get-started)
+
+### Build Docker image
+
+Build a docker image using the vscode task or command-line:
+
+~~~bash
+docker build -t [your docker image name here] .
+~~~
+
+The docker image settings is contained in the "Dockerfile" configuration file of the repo. The docker file defines how to build a docker image to run the FHIR validator, IG Publishing and SUSHI, including all dependencies. An alternative to run docker is to install these applications on your local computer, but it is easier to maintain a docker image with all dependencies installed.
 
 ### Run SUSHI
 
