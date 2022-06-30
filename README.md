@@ -110,6 +110,9 @@ docker run -it --rm -v package-cache:/root/.fhir -v [ig directory]:/data [name o
 
 The contents in the "output" folder can be copied into the "gh-pages" folder. As soon as the contents is checked in to the GitHub repo you should have a IG page published on your github.io site.
 
+## Publication and hosting of a FHIR IG
+
+
 
 ## Projects and documentation
 
