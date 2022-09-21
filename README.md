@@ -26,11 +26,11 @@ You will need a gh-pages branch to contain the files produced from you IG build 
 
 To create the orphan gh-pages branch (based on instructions from Hugo):
 
-> git checkout --orphan gh-pages
-> git reset --hard
-> git commit --allow-empty -m "Initializing gh-pages branch"
-> git push origin gh-pages
-> git checkout master
+> git checkout --orphan gh-pages  
+> git reset --hard  
+> git commit --allow-empty -m "Initializing gh-pages branch"  
+> git push origin gh-pages  
+> git checkout master  
 
 Once the branch is pushed to GitHub, you have to go to the Settings page of the repository. In the section “GitHub Pages”, select gh-pages as the source. If successful, you will see a message saying “Your site is published at https://your-username.github.io/your-repository/”.
 
