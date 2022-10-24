@@ -43,7 +43,9 @@ In a separate folder under "igs", define your IG and the FHIR artifacts (profile
 You need three files to get started with IG build process:
 * ig.ini - Defines the template for the IG and where the generated ImplementationGuide resouces is to be found.
 * sushi-config.yaml - Defines configuration for your implementation guide to the SUSHI IG generation part of the IG-Publisher
+  * sushi-config.yaml should contain references to any documentation pages you make in the input/pages folder
 * input/pages/index.md - The starting page of your implementation guide, usually written i markdown
+  * The input/pages folder can contain any number of markdown files to display as part of you implementation guide
 * package-list.json - is recommended to keep track of published versions of your IG
 
 The actual FHIR definitions ([FHIR Shorthand](https://fshschool.org/docs/)) goes into the fsh folder, full writeup of the catalog structure for [IG-generation](https://fshschool.org/docs/sushi/project/#ig-projects):
