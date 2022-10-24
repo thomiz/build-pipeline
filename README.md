@@ -56,7 +56,7 @@ An alternative to writing the FHIR definition using FHIR Shorthand you can provi
 
 When the source files are written in you IG repository you are ready to run IG publisher and generate an actual FHIR IG. You can choose two (or three) ways to generate a version of you IG:
 * Run the publisher as a Github-workflow
-* Run the publisher installation on your local computer (using a docker image is described here)
+* Run the publisher installation on your local computer ([using a docker image is described here](https://github.com/thomiz/build-pipeline#running-ig-publisher-as-a-local-docker-image))
 
 A third option is to setup a webhook to run the [HL7 auto build process](https://github.com/FHIR/auto-ig-builder)
 
