@@ -32,7 +32,7 @@ You will need a gh-pages branch to contain the files produced from you IG build 
 
 #### Create an orphan gh-pages branch
 
-To create the orphan gh-pages branch (based on instructions from Hugo):
+To create the orphan gh-pages branch (based on instructions from Hugo, siste linje kan være enten main eller master avhengig av repository oppsettet ditt):
 
 > git checkout --orphan gh-pages  
 > git reset --hard  
