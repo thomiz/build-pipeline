@@ -44,6 +44,10 @@ Once the branch is pushed to GitHub, you have to go to the Settings page of the 
 
 Clone the gh-pages branch to a catalog on your local drive (e.g. "gh-pages") and clone the master branches to a separate directory locally (e.g. "master"). The "gh-pages" catalog is where you store all the files from the IG-generation "output" directory. The "master" directory is where you develop and store the artifacts for your IG and the directory that you point IG-publisher for input files to generate the IG.
 
+#### Action script permission
+
+If you plan to use a CI building using an action scrip like [this](#running-ig-publisher-as-a-github-workflow) you also have to add permission for pushing code using action scripts in the repo settings. (Actions->General->Workflow permission)
+
 ### Make an ImplementationGuide
 
 In a separate folder under "igs", define your IG and the FHIR artifacts (profiles, extensions etc.). Artifacts goes in the input folder.  FHIR artifacts can be converted from xml/json to FSH or written by hand using the FSH language.
