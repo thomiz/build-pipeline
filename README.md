@@ -28,7 +28,7 @@ This guide describes two ways for building your Implementationguide using HL7 IG
 
 ### Setup your GitHub repo
 
-You will need a gh-pages branch to contain the files produced from you IG build process.
+You will need a *gh-pages* branch to contain the files produced from you IG build process.
 
 #### Create an orphan gh-pages branch
 
