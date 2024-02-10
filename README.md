@@ -70,7 +70,8 @@ An alternative to writing the FHIR definition using FHIR Shorthand you can provi
 
 * XML or JSON input is placed in the input folder with [appropriate folder names](https://build.fhir.org/ig/FHIR/ig-guidance/using-templates.html#igroot-input)
 
-> **NOTE!** IG publisher needs a implementation guide resource to run. If ypu use fsh to define your resources an implementation guide resource will be provided by sushi. However if you choose to make a conformance resources strictly using json/xml an implementation guide resource will not be provided by sushi. To fix this, you can either add a single fsh file to invoke sushi as a part of the build process or provide an implementation guide resource for IG publisher.
+**NOTE!**  
+> IG publisher needs an implementation guide resource to run. If ypu use fsh to define your resources an implementation guide resource will be provided by sushi. However if you choose to make a conformance resources strictly using json/xml an implementation guide resource will not be provided by sushi. To fix this, you can either add a single fsh file to invoke sushi as a part of the build process or provide an implementation guide resource for IG publisher.
 
 ### Next step
 
