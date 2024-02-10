@@ -34,11 +34,13 @@ You will need a *gh-pages* branch to contain the files produced from you IG buil
 
 To create the orphan gh-pages branch (based on instructions from Hugo, siste linje kan være enten main eller master avhengig av repository oppsettet ditt):
 
-> git checkout --orphan gh-pages  
-> git reset --hard  
-> git commit --allow-empty -m "Initializing gh-pages branch"  
-> git push origin gh-pages  
-> git checkout master  
+~~~
+git checkout --orphan gh-pages  
+git reset --hard  
+git commit --allow-empty -m "Initializing gh-pages branch"  
+git push origin gh-pages  
+git checkout master  
+~~~
 
 Once the branch is pushed to GitHub, you have to go to the Settings page of the repository. In the section “GitHub Pages”, select gh-pages as the source. If successful, you will see a message saying “Your site is published at https://your-username.github.io/your-repository/”.
 
@@ -61,10 +63,14 @@ You need three files to get started with IG build process:
 * package-list.json - is recommended to keep track of published versions of your IG
 
 The actual FHIR definitions ([FHIR Shorthand](https://fshschool.org/docs/)) goes into the fsh folder, full writeup of the catalog structure for [IG-generation](https://fshschool.org/docs/sushi/project/#ig-projects):
+
 * input/fsh/* - All the fsh files defining your FHIR artifacts (profiles, search parameters, codesystems etc.)
 
 An alternative to writing the FHIR definition using FHIR Shorthand you can provide XML or JSON definitions directly or generated from other tools like [Forge](https://fire.ly/products/forge/) or [Trifolia on FHIR](https://trifolia-fhir.lantanagroup.com/lantana_hapi_r4/home). You can also mix FSH and XM/JSON input:
-* XML or JSON input is placed in the input folder with [appropriate folder names](https://build.fhir.org/ig/FHIR/ig-guidance/using-templates.html#igroot-input)  
+
+* XML or JSON input is placed in the input folder with [appropriate folder names](https://build.fhir.org/ig/FHIR/ig-guidance/using-templates.html#igroot-input)
+
+> **NOTE!** IG publisher needs a implementation guide resource to run. If ypu use fsh to define your resources an implementation guide resource will be provided by sushi. However if you choose to make a conformance resources strictly using json/xml an implementation guide resource will not be provided by sushi. To fix this, you can either add a single fsh file to invoke sushi as a part of the build process or provide an implementation guide resource for IG publisher.
 
 ### Next step
 
