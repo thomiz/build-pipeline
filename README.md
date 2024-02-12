@@ -152,6 +152,21 @@ When an FHIR IG has undergone QA and processess defined by your organisation for
 
 * [Maintaining a FHIR IG Publication](https://confluence.hl7.org/display/FHIR/Maintaining+a+FHIR+IG+Publication)
 
+### Publishing a version
+
+What steps are part of the publication of a new version of the IG.  
+**TODO**
+
+### Version information in the IG
+
+Update the package_list.json file with information about the new version of the IG.  
+**TODO**  
+
+### Maintaining multiple versions of the IG
+
+The work steps included in maintaining multiple versions of the IG.
+**TODO**
+
 ## Other build tools for IG generation
 
 SIMPLIFIER and Trifolia are other possible solutions for generating FHIR implementation guides.
