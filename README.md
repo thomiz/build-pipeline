@@ -16,7 +16,7 @@
 
 ## Further development of the IG
 
-After publishing furher input from implementing and testing should be adressed in a new develop cycle for the Implementation Guide. Another cycle of the build pipleline should produce an updated Implementation Guide with a new version of the IG and the conformance resources.
+After publishing further input from implementing and testing should be adressed in a new develop cycle for the Implementation Guide. Another cycle of the build pipleline should produce an updated Implementation Guide with a new version of the IG and the conformance resources.
 
 ## Tools for building
 
